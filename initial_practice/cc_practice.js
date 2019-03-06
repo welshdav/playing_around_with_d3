@@ -15,21 +15,21 @@ let videoData = [{title: "Despacito", amount: 5.68},
          {title: "Lean On", amount: 2.43}
  ];
 
-let gameData = [{title: "Despacito", amount: 5.68},
-         {title: "ORAS", amount: 2.015},
-         {title: "God of War", amount: 2.018},
-         {title: "Skyrim", amount: 2.010},
-         {title: "Arkahm Assylum", amount: 2.008},
-         {title: "Sun and Moon", amount: 2.015},
-         {title: "Into the Wild", amount: 2.015},
-         {title: "Red Dead One", amount: 2.011},
-         {title: "Mario", amount: 1.994},
-         {title: "GCube", amount: 2.001},
-         {title: "3ds", amount: 2.014},
-         {title: "Ps4", amount: 2.013},
-         {title: "Spideman", amount: 2.018},
-         {title: "Avengers", amount: 2.020},
-         {title: "Galar", amount: 2.019}
+let gameData = [{title: "Despacito", year: 5.68},
+         {title: "ORAS", year: 2.015},
+         {title: "God of War", year: 2.018},
+         {title: "Skyrim", year: 2.010},
+         {title: "Arkahm Assylum", year: 2.008},
+         {title: "Sun and Moon", year: 2.015},
+         {title: "Into the Wild", year: 2.015},
+         {title: "Red Dead One", year: 2.011},
+         {title: "Mario", year: 1.994},
+         {title: "GCube", year: 2.001},
+         {title: "3ds", year: 2.014},
+         {title: "Ps4", year: 2.013},
+         {title: "Spideman", year: 2.018},
+         {title: "Avengers", year: 2.020},
+         {title: "Galar", year: 2.019}
  ];
 
 let divSelection = d3.select("body") 
@@ -37,8 +37,12 @@ let divSelection = d3.select("body")
 
 divSelection
   .data(videoData)
-  .text(function(d) {return d}); 
+  .text((d) => {return d.title + ": " + d.amount + "."}); 
+.attr("class", "bar")
+.style("width", function(d) {return 50 * d.amount + "px"});
   
 divSelection
   .data(gameData)
-  .text(function(d) {return d}); 
+  .text((d) => {return d.title + ": " + d.year + "."}); 
+.attr("class", "bar") 
+.style("width", function(d) {return 50 * d.year + "px'}); 
